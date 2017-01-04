@@ -8,7 +8,9 @@
   },
   "devDependencies": {
     "@financial-times/n-heroku-tools": "^6.15.1",
+    "eslint": "^3.12.2",
     "haikro": "^2.3.3",
+    "lintspaces-cli": "^0.5.0",
     "nodemon": "^1.11.0"
   },
   "dependencies": {
