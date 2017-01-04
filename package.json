@@ -4,7 +4,7 @@
   "description": "App to allow editing of video content",
   "main": "server/app.js",
   "engines": {
-    "node": "6.9.1"
+    "node": "6.9.3"
   },
   "devDependencies": {
     "@financial-times/n-heroku-tools": "^6.15.1",
