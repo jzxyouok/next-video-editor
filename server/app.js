@@ -1,4 +1,3 @@
-try {
 const express = require('@financial-times/n-express');
 
 const controllers = require('./controllers/index');
@@ -15,7 +14,3 @@ const listen = app.listen(process.env.PORT || 3001);
 module.exports = {
 	listen
 };
-}
-catch(e) {
-	console.log(e);
-}
