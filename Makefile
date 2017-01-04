@@ -2,10 +2,12 @@ include n.Makefile
 
 TEST_APP := "ft-next-video-editor-branch-${CIRCLE_BUILD_NUM}"
 
-test: verify
+test:
+#verify
 
 run:
-	nht run --https --local
+#nht run --https --local
+	forever server/app.js
 
 provision:
 	nht provision ${TEST_APP}
