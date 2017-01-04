@@ -12,7 +12,7 @@
     "haikro": "^2.3.3",
     "lintspaces-cli": "^0.5.0",
     "nodemon": "^1.11.0",
-    "scss-lint": "0.0.0"
+    "sass-lint": "^1.10.2"
   },
   "dependencies": {
     "@financial-times/n-express": "^17.21.4",
