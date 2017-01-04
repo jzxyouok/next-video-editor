@@ -2,6 +2,5 @@
 .editorconfig
 *.env*
 .eslintrc.js
-.scss-lint.yml
 
 /node_modules/
