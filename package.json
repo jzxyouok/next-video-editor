@@ -15,6 +15,7 @@
   "devDependencies": {
     "@financial-times/n-heroku-tools": "^6.15.1",
     "@financial-times/n-webpack": "^2.2.0",
+    "bower": "^1.8.0",
     "css-loader": "^0.26.1",
     "eslint": "^3.12.2",
     "haikro": "^2.3.3",
