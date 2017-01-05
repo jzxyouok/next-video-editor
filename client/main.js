@@ -1,3 +1,3 @@
-import tag from './components/tag';
+import tagAutocomplete from './components/tag-autocomplete/tag-autocomplete';
 
-tag();
+tagAutocomplete(document.querySelector('.js-tag-autocomplete'));

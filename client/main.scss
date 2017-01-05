@@ -4,6 +4,8 @@ $o-grid-is-silent: false;
 $o-techdocs-is-silent: false;
 @import 'o-techdocs/main';
 
+@import './components/tag-autocomplete/tag-autocomplete';
+
 .body {
 	margin-top: 20px;
 }

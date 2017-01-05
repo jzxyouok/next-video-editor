@@ -10,7 +10,10 @@
     "denodeify": "^1.2.1",
     "forever": "^0.15.3",
     "mongodb": "^2.2.19",
-    "node-uuid": "^1.4.7"
+    "node-uuid": "^1.4.7",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-tag-autocomplete": "^5.0.4"
   },
   "devDependencies": {
     "@financial-times/n-heroku-tools": "^6.15.1",
