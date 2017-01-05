@@ -1,7 +1,13 @@
 <ol class="list-group">
 	{{#each videos}}
-		<li class="list-group-item">
-			<a href="/{{id}}/update">{{title}}</a>
+		<li class="list-group-item row">
+			<div class="col-xs-2">
+				<h4>{{title}}</h4>
+			</div>
+			<div class="col-xs-10">
+				<a  class="btn btn-primary" href="/{{id}}/update">Update</a>
+				<a  class="btn btn-secondary" href="/{{id}}">View</a>
+			</div>
 		</li>
 	{{/each}}
 </ol>
