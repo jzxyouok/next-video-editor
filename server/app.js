@@ -18,9 +18,9 @@ app.get('/__gtg', controllers.gtg);
 app.get('/', controllers.list);
 app.get('/create', controllers.create.view);
 app.post('/create', urlencodedParser, controllers.create.action);
-app.get('/read/:id', controllers.read);
-app.get('/update/:id', controllers.update.view);
-app.post('/update/:id', urlencodedParser, controllers.update.action);
+app.get('/:id', controllers.read);
+app.get('/:id/update', controllers.update.view);
+app.post('/:id/update/', urlencodedParser, controllers.update.action);
 
 // wait until we're connected to mongo
 const listen = mongoClient.then(() => app.listen(process.env.PORT || 3001));

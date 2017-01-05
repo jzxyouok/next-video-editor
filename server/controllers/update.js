@@ -29,7 +29,7 @@ module.exports = {
 				const video = { title, standfirst };
 				return denodeify(collection.updateOne.bind(collection))({ id }, { $set: video })
 					.then(() => {
-						res.redirect(`/update/${id}`);
+						res.redirect(`/${id}/update`);
 					});
 			} else {
 				return denodeify(collection.deleteOne.bind(collection))({ id })

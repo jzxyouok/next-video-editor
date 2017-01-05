@@ -24,7 +24,7 @@ module.exports = {
 		})
 			.then(result => {
 				const { ops: [{ id }] } = result;
-				res.redirect(`/update/${id}`);
+				res.redirect(`/${id}/update`);
 			})
 			.catch(err => {
 				logger.error(err);
