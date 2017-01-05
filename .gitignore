@@ -2,5 +2,14 @@
 .editorconfig
 *.env*
 .eslintrc.js
+.scss-lint.yml
 
+/bower_components/
 /node_modules/
+
+/public/__about.json
+/public/asset-hashes.json
+/public/main.css
+/public/main.css.map
+/public/main.js
+/public/main.js.map

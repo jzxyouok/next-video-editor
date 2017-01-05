@@ -10,7 +10,7 @@ run:
 provision:
 	nht provision ${TEST_APP}
 	nht configure ft-next-video-editor ${TEST_APP}
-#nht deploy-hashed-assets
+	nht deploy-hashed-assets
 	nht deploy ${TEST_APP}
 
 tidy:
@@ -18,5 +18,5 @@ tidy:
 
 deploy:
 	nht configure
-#nht deploy-hashed-assets --monitor-assets
+	nht deploy-hashed-assets --monitor-assets
 	nht deploy

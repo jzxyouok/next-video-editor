@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="{{#hashedAsset}}main.css{{/hashedAsset}}">
+	</head>
+	<body>
+		<header data-o-component="o-techdocs-header" class="o-techdocs-header">
+			<div class="o-techdocs-header__container">
+				<div class="o-techdocs-header__primary">
+					<div class="o-techdocs-header__primary__left">
+						<a class="o-techdocs-header__logo" href="/">
+							<h1 class="o-techdocs-header__title">Video Editor</h1>
+						</a>
+					</div>
+
+					<nav class="o-techdocs-header__primary__right o-hierarchical-nav o-techdocs-header__nav--primary-theme" data-o-component="o-hierarchical-nav">
+						<ul data-o-hierarchical-nav-level="1">
+							<li data-priority="1"><a href="/">List</a></li>
+							<li data-priority="1"><a href="/create">Create</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<div class="o-grid-container">
+    		<div class="o-grid-row">
+    			<div class="body" data-o-grid-colspan="12">
+					{{{body}}}
+				</div>
+			</div>
+		</div>
+		{{#each @root.javascriptBundles}}
+			<script defer async src="{{{this}}}"></script>
+		{{/each}}
+
+	</body>
+</html>

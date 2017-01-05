@@ -5,10 +5,17 @@
   "main": "server/app.js",
   "dependencies": {
     "@financial-times/n-express": "^17.21.4",
-    "forever": "^0.15.3"
+    "@financial-times/n-logger": "^5.4.8",
+    "body-parser": "^1.15.2",
+    "denodeify": "^1.2.1",
+    "forever": "^0.15.3",
+    "mongodb": "^2.2.19",
+    "node-uuid": "^1.4.7"
   },
   "devDependencies": {
     "@financial-times/n-heroku-tools": "^6.15.1",
+    "@financial-times/n-webpack": "^2.2.0",
+    "css-loader": "^0.26.1",
     "eslint": "^3.12.2",
     "haikro": "^2.3.3",
     "lintspaces-cli": "^0.5.0",
