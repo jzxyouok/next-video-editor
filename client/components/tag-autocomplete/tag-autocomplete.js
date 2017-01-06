@@ -21,22 +21,22 @@ export default tagAutocompleteContainerEl => {
 	const TagAutocomplete = React.createClass({
 		getInitialState: function () {
 			return {
-	      		tags: JSON.parse(tagAutocompleteContainerEl.getAttribute('data-tags')),
-	      		suggestions: []
-	    	}
-	  	},
-	  	handleAddition: function (tag) {
-	  		addTag(tag.id, tagAutocompleteContainerEl);
-		    const tags = this.state.tags;
-		    tags.push(tag)
-		    this.setState({ tags })
-	  	},
-	  	handleDelete: function (i) {
-	  		removeTag(this.state.tags[i].id, tagAutocompleteContainerEl);
-		    this.state.tags.splice(i, 1);
-		    this.setState({ tags: this.state.tags })
-	  	},
-	  	handleInputChange: function (value) {
+				tags: JSON.parse(tagAutocompleteContainerEl.getAttribute('data-tags')),
+				suggestions: []
+			}
+		},
+		handleAddition: function (tag) {
+			addTag(tag.id, tagAutocompleteContainerEl);
+			const tags = this.state.tags;
+			tags.push(tag)
+			this.setState({ tags })
+		},
+		handleDelete: function (i) {
+			removeTag(this.state.tags[i].id, tagAutocompleteContainerEl);
+			this.state.tags.splice(i, 1);
+			this.setState({ tags: this.state.tags })
+		},
+		handleInputChange: function (value) {
 			fetch(`https://tag-facets-api.ft.com/?partial=${value}&minimum=0&count=5`)
 				.then(response => {
 					if (response.ok) {
@@ -47,21 +47,20 @@ export default tagAutocompleteContainerEl => {
 				})
 				.then(results => {
 					const suggestions = results.map(({ id, name }) => ({ id, name }));
-					console.log(suggestions);
 					this.setState({ suggestions });
 				})
 				.catch();
-	  	},
-	  	render: function () {
-	    	return (
-	      		<ReactTags
-	        		tags={this.state.tags}
-	        		suggestions={this.state.suggestions}
-	        		handleAddition={this.handleAddition}
-	        		handleDelete={this.handleDelete}
-	        		handleInputChange={this.handleInputChange} />
-	    	);
-	  	}
+		},
+		render: function () {
+			return (
+				<ReactTags
+					tags={this.state.tags}
+					suggestions={this.state.suggestions}
+					handleAddition={this.handleAddition}
+					handleDelete={this.handleDelete}
+					handleInputChange={this.handleInputChange} />
+			);
+		}
 	});
 
 	render(<TagAutocomplete />, tagAutocompleteContainerEl)
