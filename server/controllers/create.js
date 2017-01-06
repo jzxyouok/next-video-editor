@@ -6,7 +6,7 @@ const mongoClient = require('../clients/mongo');
 
 module.exports = {
 	view: (req, res) => {
-		res.render('create', {
+		res.render('form', {
 			layout: 'layout'
 		});
 	},

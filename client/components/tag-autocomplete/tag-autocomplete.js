@@ -18,10 +18,13 @@ const removeTag = (id, autocompleteEl) => {
 };
 
 export default tagAutocompleteContainerEl => {
+	if (!tagAutocompleteContainerEl) {
+		return;
+	}
 	const TagAutocomplete = React.createClass({
 		getInitialState: function () {
 			return {
-				tags: JSON.parse(tagAutocompleteContainerEl.getAttribute('data-tags')),
+				tags: JSON.parse(tagAutocompleteContainerEl.getAttribute('data-tags') || '[]'),
 				suggestions: []
 			}
 		},

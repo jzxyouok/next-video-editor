@@ -25,10 +25,10 @@ module.exports = {
 			const collection = db.collection('documents');
 			return denodeify(collection.findOne.bind(collection))({ id: req.params.id });
 		})
-			.then(result => {
-				res.render('update', {
+			.then(video => {
+				res.render('form', {
 				layout: 'layout',
-					video: result
+					video
 				});
 			})
 			.catch(err => {
