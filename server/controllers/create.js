@@ -4,6 +4,7 @@ const uuid = require('node-uuid');
 
 const mongoClient = require('../clients/mongo');
 const tagsToMetadata = require('../lib/tags-to-metadata');
+const getVideoData = require('../lib/get-video-data');
 
 module.exports = {
 	view: (req, res) => {
@@ -14,11 +15,11 @@ module.exports = {
 	action: (req, res) => {
 		mongoClient.then(db => {
 			const id = uuid.v4();
-			const { title, standfirst, tags } = req.body;
-			return tagsToMetadata(tags)
-				.then(metadata => {
+			const { title, standfirst, tags, video: videoId } = req.body;
+			return Promise.all([tagsToMetadata(tags), getVideoData(videoId)])
+				.then(([metadata, videoData]) => {
 					const collection = db.collection('documents');
-					const video = { id, title, standfirst, metadata };
+					const video = Object.assign({ id, title, standfirst, metadata }, videoData);
 					return denodeify(collection.insert.bind(collection))(video);
 				})
 				.then(() => {

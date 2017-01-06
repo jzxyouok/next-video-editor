@@ -3,6 +3,7 @@ const denodeify = require('denodeify');
 
 const mongoClient = require('../clients/mongo');
 const tagsToMetadata = require('../lib/tags-to-metadata');
+const getVideoData = require('../lib/get-video-data');
 
 module.exports = {
 	view: (req, res) => {
@@ -26,10 +27,10 @@ module.exports = {
 			const collection = db.collection('documents');
 			const id = req.params.id;
 			if (req.body.action.toLowerCase() === 'update') {
-				const { title, standfirst, tags } = req.body;
-				return tagsToMetadata(tags)
-					.then(metadata => {
-						const video = { title, standfirst, metadata };
+				const { title, standfirst, tags, video: videoId } = req.body;
+				return Promise.all([tagsToMetadata(tags), getVideoData(videoId)])
+					.then(([metadata, videoData]) => {
+						const video = Object.assign({ title, standfirst, metadata }, videoData);
 						return denodeify(collection.updateOne.bind(collection))({ id }, { $set: video })
 					})
 					.then(() => {

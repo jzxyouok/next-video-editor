@@ -11,12 +11,19 @@
 			<input class="form-control" type="text" name="standfirst" id="standfirst" value="{{video.standfirst}}">
 		</div>
 	</div>
+	<div class="form-group row">
+		<label for="video" class="col-xs-2 col-form-label">Video</label>
+		<div class="col-xs-10">
+			<div class="js-video-lookup" data-video-id="{{video.videoId}}" data-video-name="{{video.videoName}}"></div>
+			<input type="hidden" name="video" id="video" value="{{video.videoId}}" />
+		</div>
+	</div>
 	<fieldset class="tags form-group row">
 		<legend>Tags</legend>
 		{{#each video.metadata}}
 			<input type="hidden" value="{{id}}" name="tags">
 		{{/each}}
-		<div class="js-tag-autocomplete" data-tags="{{json video.metadata}}" />
+		<div class="js-tag-autocomplete" data-tags="{{json video.metadata}}"></div>
 	</fieldset>
 	<input class="btn btn-success" type="submit" name="action" value="Update" />
 	<input class="btn btn-danger" type="submit" name="action" value="Delete" />

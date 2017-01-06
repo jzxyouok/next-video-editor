@@ -49,8 +49,7 @@ export default tagAutocompleteContainerEl => {
 					}
 				})
 				.then(results => {
-					const suggestions = results.map(({ id, name }) => ({ id, name }));
-					this.setState({ suggestions });
+					this.setState({ suggestions: results });
 				})
 				.catch();
 		},
