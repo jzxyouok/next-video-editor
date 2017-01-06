@@ -16,7 +16,7 @@
 		{{#each video.metadata}}
 			<input type="hidden" value="{{id}}" name="tags">
 		{{/each}}
-		<div class="js-tag-autocomplete" data-tags="{{json metadata}}" />
+		<div class="js-tag-autocomplete" data-tags="{{json video.metadata}}" />
 	</fieldset>
 	<input class="btn btn-success" type="submit" name="action" value="Update" />
 	<input class="btn btn-danger" type="submit" name="action" value="Delete" />

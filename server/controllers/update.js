@@ -1,23 +1,8 @@
 const logger = require('@financial-times/n-logger').default;
 const denodeify = require('denodeify');
-const querystring = require('querystring');
 
 const mongoClient = require('../clients/mongo');
-
-const tagsToMetadata = tags => {
-	const getThings = [].concat(tags)
-		.map(tag => {
-			const qs = querystring.stringify({
-				identifierValue: tag,
-				authority: 'http://api.ft.com/system/FT-TME',
-				apiKey: process.env.ES_INTERFACE_API_KEY
-			});
-			return fetch(`https://ft-next-es-interface-eu.herokuapp.com/things?${qs}`)
-				.then(response => response.json())
-				.then(({ term }) => term);
-		});
-	return Promise.all(getThings);
-};
+const tagsToMetadata = require('../lib/tags-to-metadata');
 
 module.exports = {
 	view: (req, res) => {

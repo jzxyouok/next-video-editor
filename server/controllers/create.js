@@ -3,6 +3,7 @@ const denodeify = require('denodeify');
 const uuid = require('node-uuid');
 
 const mongoClient = require('../clients/mongo');
+const tagsToMetadata = require('../lib/tags-to-metadata');
 
 module.exports = {
 	view: (req, res) => {
@@ -12,20 +13,18 @@ module.exports = {
 	},
 	action: (req, res) => {
 		mongoClient.then(db => {
-			const collection = db.collection('documents');
 			const id = uuid.v4();
-			const { title, standfirst } = req.body;
-			const video = {
-				id,
-				title,
-				standfirst
-			};
-			return denodeify(collection.insert.bind(collection))(video);
+			const { title, standfirst, tags } = req.body;
+			return tagsToMetadata(tags)
+				.then(metadata => {
+					const collection = db.collection('documents');
+					const video = { id, title, standfirst, metadata };
+					return denodeify(collection.insert.bind(collection))(video);
+				})
+				.then(() => {
+					res.redirect(`/${id}/update`);
+				});
 		})
-			.then(result => {
-				const { ops: [{ id }] } = result;
-				res.redirect(`/${id}/update`);
-			})
 			.catch(err => {
 				logger.error(err);
 				res.sendStatus(500);
