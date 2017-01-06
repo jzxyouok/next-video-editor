@@ -37,7 +37,7 @@ export default tagAutocompleteContainerEl => {
 		    this.setState({ tags: this.state.tags })
 	  	},
 	  	handleInputChange: function (value) {
-			fetch(`https://local.ft.com:3002/?partial=${value}&minimum=0&count=5`)
+			fetch(`https://tag-facets-api.ft.com/?partial=${value}&minimum=0&count=5`)
 				.then(response => {
 					if (response.ok) {
 						return response.json();
