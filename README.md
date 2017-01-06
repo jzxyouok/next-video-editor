@@ -13,3 +13,5 @@ App to allow editing of video content
 # Run
 
     $ make run
+
+Then visit https://local.ft.com:3002
